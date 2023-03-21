@@ -78,7 +78,7 @@ const Comment = ({ data }) => {
       <AccountCircleIcon fontSize="large" />
       <div className="text-xs">
         <p className="font-bold">{name}</p>
-        <p>{text}</p>
+        <p className="text-[.6rem] md:text-xs">{text}</p>
       </div>
     </div>
   );
@@ -97,7 +97,7 @@ const CommentsList = ({ comments }) => {
 };
 const CommentsContainer = () => {
   return (
-    <div className="py-4">
+    <div className="py-4 md:w-2/3">
       <p className="font-bold">Comments</p>
       <CommentsList comments={commentsData} />
     </div>

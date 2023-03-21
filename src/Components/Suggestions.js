@@ -1,10 +1,13 @@
-import React from 'react'
-import { YOUTUBE_SUGGESTION_URL } from '../Utils/Constants'
-import useFetch from '../Utils/Hooks/useFetch'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getRelatedVideos } from '../Utils/apiCalls';
 
 const Suggestions = ({id}) => {
-    const videos = useFetch(YOUTUBE_SUGGESTION_URL(id));
-    console.log(videos);
+  const dispatch = useDispatch();
+  const {videos,loading} = useSelector(store => store.homeVideo);
+  useEffect(()=>{
+    getRelatedVideos(id,dispatch);
+  },[dispatch,id])
   return (
     <div>Suggestions</div>
   )

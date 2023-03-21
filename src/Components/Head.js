@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../Utils/appSlice";
-import { YOUTUBE_SEARCH_API } from "../Utils/Constants";
+import { YOUTUBE_SEARCH_URL } from "../Utils/Constants";
 import { cacheResults } from "../Utils/searchSlice";
 
 const Head = () => {
@@ -30,13 +30,13 @@ const Head = () => {
   }, [searchQuery]);
   const getSearchSuggestion = async () => {
     console.log('API CALL - '+searchQuery);
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_URL + searchQuery);
     const json = await data.json();
     setSuggestions(json[1]);
     dispatch(cacheResults({[searchQuery]: json[1]}))
   };
   return (
-    <div className="flex px-4 py-2 w-full items-center justify-between sticky top-0 bg-white">
+    <div className="flex px-4 py-2 w-full min-w-[100px] items-center justify-between sticky top-0 bg-white">
       <div className="hidden sm:flex sm:items-center sm:gap-4">
         <MenuIcon onClick={sideBarOpenHandler} className="cursor-pointer" />
         <img
