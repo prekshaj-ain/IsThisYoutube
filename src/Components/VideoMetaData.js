@@ -2,24 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_CHANNEL_URL } from '../Utils/Constants'
 import ReplyIcon from '@mui/icons-material/Reply';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 
 const VideoMetaData = ({info}) => {
   const [channelData, setChannelData] = useState(null);
-  const {channelId,title} = info?.snippet;
-    useEffect(()=>{
-      const fetchChannel = async ()=>{
-        const response =await fetch(YOUTUBE_CHANNEL_URL + channelId);
-        const data = await response.json();
-        setChannelData(data.items[0]);
-      }
-      fetchChannel();
-
-    },[channelId])
+  const channelId = info?.snippet?.channelId;
+  useEffect(()=>{
+    const fetchChannel = async ()=>{
+      const response =await fetch(YOUTUBE_CHANNEL_URL + channelId);
+      const data = await response.json();
+      setChannelData(data.items[0]);
+    }
+    fetchChannel();
+  },[channelId])
   return (
     <div >
-      <p className='font-bold py-3 px-1 md:text-lg'>{title}</p>
+      <p className='font-bold py-3 px-1 md:text-lg'>{info?.snippet?.title}</p>
       <div className='flex flex-col gap-3 sm:flex-row justify-between'>
         <div className='flex items-center gap-2 px-1 '>
           <img className='rounded-full w-8 h-8' src={channelData?.snippet?.thumbnails?.medium.url} alt={channelData?.snippet?.title}/>
