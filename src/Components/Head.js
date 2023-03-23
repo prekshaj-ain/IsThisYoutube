@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../Utils/appSlice";
 import { YOUTUBE_SEARCH_URL } from "../Utils/Constants";
 import { cacheResults } from "../Utils/searchSlice";
+import { Link } from "react-router-dom";
+import DetectClickOutside from "./DetectClickOutside";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -51,6 +53,7 @@ const Head = () => {
         alt="Youtube"
       />
       <div className="inline-block w-2/4 relative">
+      <DetectClickOutside onClickOutside={()=>setOpenList(false)}>
         <div className="flex flex-col">
           <div className="w-full flex">
             <input
@@ -61,23 +64,23 @@ const Head = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={()=>setOpenList(true)}
-              onBlur={()=>setOpenList(false)}
             />
-            <div className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8">
+            <Link to={`/results?search_query=${searchQuery}`} className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8">
               <SearchIcon fontSize="small" />
-            </div>
+            </Link>
           </div>
           {openList && <div className="absolute top-[40px] bg-white w-[calc(100%-3.1rem)] shadow-xl rounded-lg">
             <ul>
             { Suggestions.map((suggestion,index) => (
-              <li key={index} className="text-gray-500 flex gap-2 items-center cursor-default px-4 py-1 hover:bg-gray-100"><SearchIcon fontSize="small" />{suggestion}</li>
+              <Link to={`/results?search_query=${suggestion}`} onClick={()=>setOpenList(false)} key={index} className="text-gray-500 flex gap-2 items-center cursor-default px-4 py-1 hover:bg-gray-100"><SearchIcon fontSize="small" />{suggestion}</Link>
             )) }
               
             </ul>
           </div>}
         </div>
+      </DetectClickOutside>
       </div>
-      <div className="w-24 flex justify-end ">
+      <div className="sm:w-24 w-12 flex justify-end ">
         <AccountCircleIcon />
       </div>
     </div>
