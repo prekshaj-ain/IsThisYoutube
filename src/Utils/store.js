@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appSlice from "./appSlice";
 import homeVideoSlice from "./homeVideoSlice";
+import relatedVideosSlice from "./relatedVideosSlice";
 import searchSlice from "./searchSlice";
+import searchVideosSlice from "./searchVideosSlice";
 import selectedVideoSlice from "./selectedVideoSlice";
 
 const store = configureStore({
@@ -10,6 +12,8 @@ const store = configureStore({
         search: searchSlice,
         homeVideo : homeVideoSlice,
         selectedVideo : selectedVideoSlice,
+        relatedVideo: relatedVideosSlice,
+        searchVideo: searchVideosSlice
     }
 });
 

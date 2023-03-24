@@ -1,7 +1,10 @@
 
 import { YOUTUBE_API_URL, YOUTUBE_SUGGESTION_URL, YOUTUBE_TAG_URL, YOUTUBE_VIDEO_URL } from "./Constants";
 import { FETCH_FAIL, FETCH_START, FETCH_SUCCESS } from "./homeVideoSlice"
+import { RELATED_FETCH_FAIL, RELATED_FETCH_START, RELATED_FETCH_SUCCESS } from "./relatedVideosSlice";
+import { SEARCH_FETCH_FAIL, SEARCH_FETCH_START, SEARCH_FETCH_SUCCESS } from "./searchVideosSlice";
 import { SELECTED_VIDEO_FAIL, SELECTED_VIDEO_START, SELECTED_VIDEO_SUCCESS } from "./selectedVideoSlice";
+
 
 export const getPopularVideos = async (dispatch)=>{
     dispatch(FETCH_START());
@@ -50,17 +53,32 @@ export const getVideoById = async (id,dispatch)=>{
     }
 }
 export const getRelatedVideos = async (id,dispatch)=>{
-    dispatch(FETCH_START());
+    dispatch(RELATED_FETCH_START());
     try{
         const data = await fetch(YOUTUBE_SUGGESTION_URL + id);
         if(data.status === 200){
             const json = await data.json();
-            dispatch(FETCH_SUCCESS(json.items));
+            dispatch(RELATED_FETCH_SUCCESS(json.items));
         }
         else{
-            dispatch(FETCH_FAIL());
+            dispatch(RELATED_FETCH_FAIL());
         }
     }catch(err){
-        dispatch(FETCH_FAIL())
+        dispatch(RELATED_FETCH_FAIL())
+    }
+}
+export const getVideosByQuery = async (query,dispatch)=>{
+    dispatch(SEARCH_FETCH_START());
+    try{
+        const data = await fetch(YOUTUBE_TAG_URL + query);
+        if(data.status === 200){
+            const json = await data.json();
+            dispatch(SEARCH_FETCH_SUCCESS(json.items));
+        }
+        else{
+            dispatch(SEARCH_FETCH_FAIL());
+        }
+    }catch(err){
+        dispatch(SEARCH_FETCH_FAIL())
     }
 }

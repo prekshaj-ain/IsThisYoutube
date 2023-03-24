@@ -37,6 +37,10 @@ const Head = () => {
     setSuggestions(json[1]);
     dispatch(cacheResults({[searchQuery]: json[1]}))
   };
+  const handleListClick = (query)=>{
+    setOpenList(false);
+    setSearchQuery(query)
+  }
   return (
     <div className="flex px-4 py-2 w-full min-w-[100px] items-center justify-between sticky top-0 bg-white">
       <div className="hidden sm:flex sm:items-center sm:gap-4">
@@ -48,11 +52,11 @@ const Head = () => {
         />
       </div>
       <img
-        className="sm:hidden w-19 h-4"
+        className="sm:hidden w-14 h-3"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
         alt="Youtube"
       />
-      <div className="inline-block w-2/4 relative">
+      <div className="inline-block w-2/4 min-w-[10rem] sm:relative">
       <DetectClickOutside onClickOutside={()=>setOpenList(false)}>
         <div className="flex flex-col">
           <div className="w-full flex">
@@ -65,14 +69,14 @@ const Head = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={()=>setOpenList(true)}
             />
-            <Link to={`/results?search_query=${searchQuery}`} className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8">
+            <Link to={`/results?search_query=${searchQuery}`} onClick={()=>setOpenList(false)} className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8">
               <SearchIcon fontSize="small" />
             </Link>
           </div>
-          {openList && <div className="absolute top-[40px] bg-white w-[calc(100%-3.1rem)] shadow-xl rounded-lg">
+          {openList && <div className="absolute top-[50px] sm:top-[40px] right-0 sm:right-auto w-screen bg-white sm:w-[calc(100%-3.1rem)] shadow-xl rounded-lg">
             <ul>
             { Suggestions.map((suggestion,index) => (
-              <Link to={`/results?search_query=${suggestion}`} onClick={()=>setOpenList(false)} key={index} className="text-gray-500 flex gap-2 items-center cursor-default px-4 py-1 hover:bg-gray-100"><SearchIcon fontSize="small" />{suggestion}</Link>
+              <Link to={`/results?search_query=${suggestion}`} onClick={()=>handleListClick(suggestion)} key={index} className="text-gray-500 flex gap-2 items-center cursor-default px-4 py-1 hover:bg-gray-100"><SearchIcon fontSize="small" />{suggestion}</Link>
             )) }
               
             </ul>
@@ -80,7 +84,7 @@ const Head = () => {
         </div>
       </DetectClickOutside>
       </div>
-      <div className="sm:w-24 w-12 flex justify-end ">
+      <div className=" hidden sm:flex sm:w-24 w-12  justify-end ">
         <AccountCircleIcon />
       </div>
     </div>
