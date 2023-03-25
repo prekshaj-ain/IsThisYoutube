@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPopularVideos } from '../Utils/apiCalls'
 import { openMenu } from '../Utils/appSlice'
+import BottomNav from './BottomNav'
 import ButtonList from './ButtonList'
 import VideoContainer from './VideoContainer'
 
@@ -16,6 +17,7 @@ const MainContainer = () => {
     <div className='overflow-hidden w-full'>
         <ButtonList />
         <VideoContainer/>
+        <BottomNav />
     </div>
   )
 }
