@@ -1,5 +1,5 @@
 import React from "react";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import "./App.css";
 import Body from "./Components/Body";
@@ -8,21 +8,13 @@ import WatchVideo from "./Components/WatchVideo";
 import MainContainer from './Components/MainContainer'
 import store from "./Utils/store";
 import SearchScreen from "./Components/SearchScreen";
-/*
--Head
--Body 
- -sidebar
-  -MenuItems
- -mainContainer
-  -buttonList
-  -videoContainer
-   -videoCard (many) 
-   */
+
   const App = () => {
+    const isDarkMode = useSelector(store=>store.app.isDarkMode);
     return (
-      <Provider store={store}>
       <BrowserRouter>
-        <div className="box-border">
+        <div className={`box-border ${isDarkMode && 'dark'} `}>
+        <div className="dark:bg-black">
           <Head />
           <Routes>
             <Route path="/" element={<Body/>} exact>
@@ -34,8 +26,8 @@ import SearchScreen from "./Components/SearchScreen";
             <Route />
           </Routes>
         </div>
+        </div>
       </BrowserRouter>
-      </Provider>
     );
   };
 

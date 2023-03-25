@@ -43,21 +43,21 @@ const ButtonList = () => {
     }
   },[dispatch,activeTag])
   return (
-    <div className=' bg-white flex items-center'>
-    {activeLeft && <div className='hidden top-0 h-full lg:flex bg-gradient-to-r from-white'>
-      <KeyboardArrowLeftIcon className="!h-7 !w-7 p-1 rounded-full hover:bg-gray-300" onClick={leftArrowClickHandler}/>
+    <div className=' bg-white flex items-center dark:bg-black'>
+    {activeLeft && <div className='hidden top-0 h-full lg:flex bg-gradient-to-r from-white dark:from-black'>
+      <KeyboardArrowLeftIcon className="!h-7 !w-7 p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 dark:fill-white" onClick={leftArrowClickHandler}/>
     </div>}
     <div className='flex gap-3 p-4 overflow-x-scroll scrollbar-hide scroll-smooth' ref={tabList}>
       {
         List.map((button,index) => (
-          <div onClick={()=>tagChangeHandler(button)} key={index} className={`border rounded-md w-fit px-3 py-1 bg-gray-200 text-xs hover:bg-gray-300 cursor-pointer whitespace-nowrap ${button === activeTag && '!bg-black text-white !hover:bg-black'} `}>
+          <div onClick={()=>tagChangeHandler(button)} key={index} className={`border rounded-md w-fit px-3 py-1 bg-gray-200 text-xs hover:bg-gray-300 cursor-pointer whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-black  ${button === activeTag && '!bg-black text-white dark:!bg-white dark:text-black'} `}>
       {button}
     </div>
         ))
       }
     </div>
-    {activeRight && <div className='hidden top-0 h-full right-0 lg:flex bg-gradient-to-l from-white'>
-    <KeyboardArrowRightIcon className="!h-7 !w-7 p-1 rounded-full hover:bg-gray-300 " onClick={rightArrorClickHandler}/>
+    {activeRight && <div className='hidden top-0 h-full right-0 lg:flex bg-gradient-to-l from-white dark:from-black'>
+    <KeyboardArrowRightIcon className="!h-7 !w-7 p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 dark:fill-white" onClick={rightArrorClickHandler}/>
     </div>}
     </div>
   )

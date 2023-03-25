@@ -74,7 +74,7 @@ const commentsData = [
 const Comment = ({ data }) => {
   const { name, text } = data;
   return (
-    <div className="flex items-center gap-3 p-2 my-2 bg-gray-200 rounded-lg">
+    <div className="flex items-center gap-3 p-2 my-2 bg-gray-200 rounded-lg dark:bg-gray-700">
       <AccountCircleIcon fontSize="large" />
       <div className="text-xs">
         <p className="font-bold">{name}</p>
@@ -88,7 +88,7 @@ const CommentsList = ({ comments }) => {
     <div>
       <Comment key={index} data={comment} />
       {comment.replies && (
-        <div className=" pl-5 border border-l-black ml-2">
+        <div className=" pl-5 border border-l-black ml-2 dark:border-gray-900 dark:border-l-white">
           <CommentsList comments={comment?.replies} />
         </div>
       )}
@@ -97,7 +97,7 @@ const CommentsList = ({ comments }) => {
 };
 const CommentsContainer = () => {
   return (
-    <div className="py-4 md:w-2/3">
+    <div className="py-4 md:w-2/3 dark:text-white">
       <p className="font-bold">Comments</p>
       <CommentsList comments={commentsData} />
     </div>
