@@ -1,3 +1,5 @@
+import moment from 'moment';
+import numeral from 'numeral';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
@@ -10,7 +12,7 @@ const VideoCard = ({info,id}) => {
             <div className='font-bold text-[.65rem]'>{title.length > 70 ? title.substring(0,70)+'...':title}</div>
             <div className='flex text-[.6rem] gap-1 min-[520px]:flex-col'>
                 <p className='text-gray-500 whitespace-nowrap'>{channelTitle.length > 20 ? channelTitle.substring(0,20)+'...':channelTitle}</p>
-                <p className='text-gray-500'>{info?.statistics?.viewCount} . {publishedAt}</p>
+                <p className='text-gray-500'>{numeral(info?.statistics?.viewCount).format('0.a')} views . {moment(publishedAt).fromNow()}</p>
             </div>
         </div>
     </Link>

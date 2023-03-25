@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { getPopularVideos } from '../Utils/apiCalls'
 import { openMenu } from '../Utils/appSlice'
 import BottomNav from './BottomNav'
