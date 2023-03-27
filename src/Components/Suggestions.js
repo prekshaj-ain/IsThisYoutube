@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getRelatedVideos } from '../Utils/apiCalls';
 import useWindowDimensions from '../Utils/Hooks/useWindowDimensions';
 import HorizontalVideo from './HorizontalVideo';
+import LiveChat from './LiveChat';
 import VideoCard from './VideoCard';
 
 const Suggestions = ({id}) => {
@@ -13,7 +14,8 @@ const Suggestions = ({id}) => {
   },[id])
   const {width} = useWindowDimensions();
   return (
-    <div className='flex flex-col py-4 basis-1/3 gap-3'>
+    <div className='flex flex-col py-4 pr-3 basis-1/3 gap-3'>
+    <LiveChat/>
       {videos.map(video => (
         width >= 520 ? 
         <HorizontalVideo key={video?.id?.videoId} info={video} size='small'/>
