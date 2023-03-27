@@ -14,8 +14,8 @@ const Suggestions = ({id}) => {
   },[id])
   const {width} = useWindowDimensions();
   return (
-    <div className='flex flex-col py-4 pr-3 basis-1/3 gap-3'>
-    <LiveChat/>
+    <div className='flex flex-col py-4 basis-1/3 gap-3'>
+    {width >= 520 && <LiveChat/>}
       {videos.map(video => (
         width >= 520 ? 
         <HorizontalVideo key={video?.id?.videoId} info={video} size='small'/>

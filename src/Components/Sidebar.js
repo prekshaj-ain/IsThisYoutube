@@ -9,16 +9,24 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getPopularVideos, getVideosByTag } from "../Utils/apiCalls";
 import { toggleMode } from "../Utils/appSlice";
-import store from "../Utils/store";
 const Sidebar = () => {
+  const {pathname} = useLocation();
   const isDarkMode = useSelector(store => store.app.isDarkMode)
-  const [activeTag,setActiveTag] = useState('Home')
+  const [activeTag,setActiveTag] = useState("");
   const isMenuOpen = useSelector(store => store.app.isMenuOpen);
   const dispatch = useDispatch();
   useEffect(()=>{
+    if(pathname === '/'){
+      setActiveTag("Home")
+    }
+  },[pathname])
+  useEffect(()=>{
+    if(activeTag === ""){
+      return;
+    }
     if(activeTag === 'Home'){
       getPopularVideos(dispatch);
     }
