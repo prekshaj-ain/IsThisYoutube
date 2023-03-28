@@ -5,6 +5,7 @@ import { getVideosByQuery } from '../Utils/apiCalls';
 import { openMenu } from '../Utils/appSlice';
 import useWindowDimensions from '../Utils/Hooks/useWindowDimensions';
 import HorizontalVideo from './HorizontalVideo';
+import Skeleton from './Skeleton';
 import VideoCard from './VideoCard';
 
 const SearchScreen = () => {
@@ -18,6 +19,9 @@ const SearchScreen = () => {
   }, [dispatch, query]);
   const {width} = useWindowDimensions();
   if(width >= 520){
+    if(loading === true){
+      return <Skeleton type="Horizontal"/>  
+    }
     return (
       <div className='flex flex-col overflow-hidden sm:basis-4/5 gap-3 mt-4 mx-4 lg:mx-auto'>
       {videos.map(video=>(
@@ -27,6 +31,9 @@ const SearchScreen = () => {
     )
   }
   else{
+    if(loading === true){
+      return <Skeleton/>  
+    }
     return (
       <div>
         {videos?.map(video => {
