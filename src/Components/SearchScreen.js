@@ -24,8 +24,8 @@ const SearchScreen = () => {
     }
     return (
       <div className='flex flex-col overflow-hidden sm:basis-4/5 gap-3 mt-4 mx-4 lg:mx-auto'>
-      {videos.map(video=>(
-        <HorizontalVideo info={video}/>
+      {videos.map((video)=>(
+        <HorizontalVideo key={video.id?.videoId} info={video}/>
       ))}
       </div>
     )
@@ -36,7 +36,7 @@ const SearchScreen = () => {
     }
     return (
       <div>
-        {videos?.map(video => {
+        {videos?.map((video) => {
        return <VideoCard key={video.id?.videoId} info={video} id={video.id?.videoId} />
       })}
       </div>

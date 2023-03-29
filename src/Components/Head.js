@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../Utils/appSlice";
 import { YOUTUBE_SEARCH_URL } from "../Utils/Constants";
 import { cacheResults } from "../Utils/searchSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DetectClickOutside from "./DetectClickOutside";
 
 const Head = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isDarkMode = useSelector(store=>store.app.isDarkMode)
   const sideBarOpenHandler = () => {
     dispatch(toggleMenu());
@@ -41,6 +42,12 @@ const Head = () => {
   const handleListClick = (query)=>{
     setOpenList(false);
     setSearchQuery(query)
+  }
+  const searchQueryHandler = (event)=>{
+    if((event?.key === 'Enter' || event === 'searchButton')&& searchQuery?.length > 0){
+      setOpenList(false);
+      navigate(`/results?search_query=${searchQuery}`)
+    }
   }
   return (
     <div className="flex px-4 py-2 w-full min-w-[100px] items-center justify-between sticky top-0 bg-white dark:bg-black">
@@ -73,10 +80,11 @@ const Head = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={()=>setOpenList(true)}
+              onKeyUp={searchQueryHandler}
             />
-            <Link to={`/results?search_query=${searchQuery}`} onClick={()=>setOpenList(false)} className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8 dark:bg-gray-600 dark:border-black">
+            <button onClick={()=>searchQueryHandler('searchButton')} className="flex items-center justify-center w-14 bg-gray-50 text-gray-400 border border-l-0 rounded-r-full h-8 dark:bg-gray-600 dark:border-black">
               <SearchIcon fontSize="small" className="dark:fill-white" />
-            </Link>
+            </button>
           </div>
           {openList && <div className="absolute top-[50px] sm:top-[40px] right-0 sm:right-auto w-screen bg-white sm:w-[calc(100%-3.1rem)] shadow-xl rounded-lg dark:bg-black">
             <ul>
