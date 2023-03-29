@@ -8,10 +8,10 @@ import VideoCard from './VideoCard';
 
 const Suggestions = ({id}) => {
   const dispatch = useDispatch();
-  const {videos,loading} = useSelector(store => store.relatedVideo);
+  const {videos} = useSelector(store => store.relatedVideo);
   useEffect(()=>{
     getRelatedVideos(id,dispatch);
-  },[id])
+  },[id,dispatch])
   const {width} = useWindowDimensions();
   return (
     <div className='flex flex-col py-4 basis-1/3 gap-3'>

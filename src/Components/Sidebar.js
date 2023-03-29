@@ -33,7 +33,7 @@ const Sidebar = () => {
     else{
       getVideosByTag(activeTag,dispatch);
     }
-  },[activeTag])
+  },[activeTag,dispatch])
   const handleChangeMode = ()=>{
     dispatch(toggleMode());
   }

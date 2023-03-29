@@ -11,7 +11,7 @@ const DetectClickOutside = (props) => {
     useEffect(()=>{
         document.addEventListener("click",handleClickEvent,true)
         return ()=>document.removeEventListener("click",handleClickEvent,true)
-    },[])
+    },[handleClickEvent])
     if(!children) return null;
   return (
     <div ref={ref}>{children}</div>
