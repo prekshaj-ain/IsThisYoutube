@@ -50,7 +50,7 @@ const ButtonList = () => {
     <div className='flex gap-3 p-4 overflow-x-scroll scrollbar-hide scroll-smooth' ref={tabList}>
       {
         List.map((button,index) => (
-          <div onClick={()=>tagChangeHandler(button)} key={index} className={`border rounded-md w-fit px-3 py-1 bg-gray-200 text-xs hover:bg-gray-300 cursor-pointer whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-black  ${button === activeTag && '!bg-black text-white dark:!bg-white dark:text-black'} `}>
+          <div onClick={()=>tagChangeHandler(button)} key={index} className={`border rounded-md w-fit px-3 py-1 bg-gray-200 text-xs hover:bg-gray-300 cursor-pointer whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-black  ${button === activeTag && '!bg-black text-white dark:!bg-white dark:!text-black'} `}>
       {button}
     </div>
         ))
