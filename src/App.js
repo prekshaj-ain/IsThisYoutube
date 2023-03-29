@@ -1,12 +1,11 @@
 import React from "react";
-import { Provider, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import "./App.css";
 import Body from "./Components/Body";
 import Head from "./Components/Head";
 import WatchVideo from "./Components/WatchVideo";
 import MainContainer from './Components/MainContainer'
-import store from "./Utils/store";
 import SearchScreen from "./Components/SearchScreen";
 
   const App = () => {

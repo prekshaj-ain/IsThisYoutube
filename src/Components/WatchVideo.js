@@ -8,19 +8,19 @@ import Suggestions from "./Suggestions";
 import VideoMetaData from "./VideoMetaData";
 
 const WatchVideo = () => {
-  const { loading, video } = useSelector((store) => store.selectedVideo);
+  const { video } = useSelector((store) => store.selectedVideo);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
-  }, []);
+  }, [dispatch]);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("v");
   useEffect(() => {
     getVideoById(id, dispatch);
-  }, [dispatch, id]);
+  }, [ id,dispatch]);
   return (
     <div className="flex flex-col lg:flex-row w-full">
       <div className=" basis-2/3 flex flex-col lg:px-5 py-4">

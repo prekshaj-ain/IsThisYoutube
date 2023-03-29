@@ -19,7 +19,7 @@ const LiveChat = () => {
             )
         }, 500);
         return ()=> clearInterval(i);
-    },[])
+    },[dispatch])
     const handleSendChat = ()=>{
         if(input.trim() === ""){
             return
