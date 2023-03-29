@@ -75,7 +75,7 @@ const Head = () => {
             <input
               type="text"
               name="search"
-              id="search"
+              id="search_here"
               className="w-full border rounded-l-full h-8 outline-0 px-4 focus:shadow-inner focus:border-blue-500 dark:bg-gray-700 dark:border-black dark:text-white"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -88,7 +88,7 @@ const Head = () => {
           </div>
           {openList && <div className="absolute top-[50px] sm:top-[40px] right-0 sm:right-auto w-screen bg-white sm:w-[calc(100%-3.1rem)] shadow-xl rounded-lg dark:bg-black">
             <ul>
-            { Suggestions.map((suggestion,index) => (
+            { Suggestions?.map((suggestion,index) => (
               <Link to={`/results?search_query=${suggestion}`} onClick={()=>handleListClick(suggestion)} key={index} className="text-gray-500 flex gap-2 items-center cursor-default px-4 py-1 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"><SearchIcon fontSize="small" />{suggestion}</Link>
             )) }
               
