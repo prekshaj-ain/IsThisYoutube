@@ -22,6 +22,9 @@ const Sidebar = () => {
     if(pathname === '/'){
       setActiveTag("Home")
     }
+    else{
+      setActiveTag("");
+    }
   },[pathname])
   useEffect(()=>{
     if(activeTag === ""){
