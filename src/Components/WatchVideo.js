@@ -9,15 +9,15 @@ import VideoMetaData from "./VideoMetaData";
 
 const WatchVideo = () => {
   const { video } = useSelector((store) => store.selectedVideo);
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("v");
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, [dispatch]);
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("v");
   useEffect(() => {
     getVideoById(id, dispatch);
   }, [ id,dispatch]);

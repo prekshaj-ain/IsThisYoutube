@@ -6,7 +6,7 @@ const HorizontalVideo = ({info,size}) => {
   const title = info?.snippet?.title;
   const time = info?.snippet?.publishedAt;
   return (
-    <Link to={`/watch?v=${info?.id?.videoId}`}className=' w-full flex gap-2 pr-4 justify-center dark:text-white'>
+    <Link to={`/watch?v=${info?.id?.videoId}`} className=' w-full flex gap-2 pr-4 justify-center dark:text-white'>
       <img src={info?.snippet?.thumbnails?.medium?.url} alt="" className='w-2/5 max-w-[17rem] aspect-video whitespace-nowrap rounded-2xl' />
       <div className='w-3/5'>
         {size === 'small' ? <p className='font-bold lg:block hidden text-xs'>{title.length > 70 ? title.substring(0,60)+'...':title}</p>

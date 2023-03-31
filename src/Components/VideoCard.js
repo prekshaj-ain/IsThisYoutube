@@ -7,7 +7,7 @@ const VideoCard = ({ info, id }) => {
   const { title, channelTitle, thumbnails, publishedAt } = info.snippet;
   return (
     <Link
-      to={`watch?v=${id}`}
+      to={`/watch?v=${id}`}
       className="w-full basis-1/4 min-w-[12rem] lg:px-2 py-2 cursor-pointer"
     >
       <img
