@@ -1,6 +1,10 @@
-# Video Streaming Platform
+# Is This Youtube
 
-Welcome to the Video Streaming Platform, a web application built with ReactJS, Tailwind CSS, and other cutting-edge technologies. This platform provides a seamless video streaming experience, featuring a variety of functionalities such as YouTube API integration, optimized search with caching and debouncing using Redux, n-level nested comments, a dark theme, skeleton screens for smoother loading, and routing with React Router DOM, mock api-polling for live chat.
+Welcome to the isthisyoutube, A Video Streaming Platform, a fast-loading, optimized, responsive web application built with ReactJS, Tailwind CSS, and other cutting-edge technologies. This platform provides a seamless video streaming experience, featuring a variety of functionalities such as YouTube API integration, optimized search with caching and debouncing using Redux, n-level nested comments, a dark theme, skeleton screens for smoother loading, and routing with React Router DOM, mock api-polling for live chat.
+
+## Live Demo
+
+Check out the live demo of the Video Streaming Platform [here](https://isthisyoutube.netlify.app/).
 
 ## Features
 
