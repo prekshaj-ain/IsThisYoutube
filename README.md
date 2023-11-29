@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Video Streaming Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Video Streaming Platform, a web application built with ReactJS, Tailwind CSS, and other cutting-edge technologies. This platform provides a seamless video streaming experience, featuring a variety of functionalities such as YouTube API integration, optimized search with caching and debouncing using Redux, n-level nested comments, a dark theme, skeleton screens for smoother loading, and routing with React Router DOM, mock api-polling for live chat.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **YouTube API Integration:**
 
-### `npm start`
+   - Fetches and displays video data seamlessly using the YouTube API, providing users with a diverse range of content.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Optimized Search with Caching and Debouncing:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Implements a powerful search functionality using Redux, with caching to minimize API calls and debouncing for a responsive user experience.
 
-### `npm test`
+3. **N-Level Nested Comments**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Dark Theme:**
 
-### `npm run build`
+   - Offers a visually appealing dark theme option for improved aesthetics and reduced eye strain during low-light conditions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Skeleton Screens:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Enhances perceived performance by incorporating skeleton screens, providing users with visual placeholders during content loading.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. **React Router DOM for Routing:**
 
-### `npm run eject`
+   - Facilitates smooth navigation and routing within the application, ensuring an organized and intuitive user experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+7. **Mock api-polling for live chat**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ReactJS
+- Tailwind CSS
+- Redux-toolkit
+- YouTube API
+- React Router DOM
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+1. **Clone the Repository:**
+   git clone https://github.com/prekshaj-ain/IsThisYoutube
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Install depencencies:**
+   cd video-streaming-platform
+   npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Start the Development Server:**
+   npm start
+   The application will be accessible at `http://localhost:3000`.
