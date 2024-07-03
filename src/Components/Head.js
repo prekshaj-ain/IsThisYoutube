@@ -23,7 +23,11 @@ const Head = () => {
   useEffect(() => {
     const getSearchSuggestion = async () => {
       console.log("API CALL - " + searchQuery);
-      const data = await fetch(YOUTUBE_SEARCH_URL + searchQuery);
+      const data = await fetch(YOUTUBE_SEARCH_URL + searchQuery, {
+        headers: {
+          "x-cors-api-key": "temp_7eed9251d3646d91ea47c4dec8334fea",
+        },
+      });
       const json = await data.json();
       setSuggestions(json[1]);
       dispatch(cacheResults({ [searchQuery]: json[1] }));
